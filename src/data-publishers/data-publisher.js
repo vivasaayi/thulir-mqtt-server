@@ -1,4 +1,3 @@
-const { _Record } = require("@aws-sdk/client-kinesis");
 const KinesisProxy = require("../proxies/kinesis-proxy");
 
 class DataPublisher {
