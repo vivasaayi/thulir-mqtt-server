@@ -4,15 +4,15 @@ class DataProcessor {
         try {
             const jsonRecord = JSON.parse(strData);
             jsonRecord.timestamp = timestamp;
-            return jsonRecord;
+            return JSON.stringify(jsonRecord);
         } catch (err) {
             console.log("Error converting record to JSON format");
         }
-        return {
+        return JSON.stringify({
             timestamp,
             originalRecord: strData,
             error: "JSON Parse Error"
-        };
+        });
     }
 }
 

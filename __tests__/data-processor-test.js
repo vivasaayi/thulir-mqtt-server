@@ -7,7 +7,8 @@ describe("DataProcessor", () => {
             aaa: "aaa",
             bbb: "bbb"
         });
-        const result = dataProcessor.processData(jsonStr);
+        const resultStr = dataProcessor.processData(jsonStr);
+        const result = JSON.parse(resultStr);
 
         expect(result.aaa).toBe("aaa");
         expect(result.bbb).toBe("bbb");
@@ -16,7 +17,8 @@ describe("DataProcessor", () => {
 
     it("should not fail for non json data", () => {
         const data = "This is a simple string";
-        const result = dataProcessor.processData(data);
+        const resultStr = dataProcessor.processData(data);
+        const result = JSON.parse(resultStr);
 
         expect(result.error).toBe("JSON Parse Error");
         expect(result.timestamp).toBeDefined();

@@ -58,8 +58,10 @@ client.publish("AAA", "TEST ASA", {}, (aa, bb) => {
 let index = 0;
 setInterval(() => {
     data = {
-        temp: "temp-" + index,
-        humidity: "humidity-" + index
+        temperature: index,
+        humidity: index,
+        pressure: index,
+        source: "test-client"
     }
     client.publish("AAA", JSON.stringify(data), {}, (aa) => {
         console.log("Published", aa);
