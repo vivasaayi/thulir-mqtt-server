@@ -64,4 +64,5 @@ setInterval(() => {
     client.publish("AAA", JSON.stringify(data), {}, (aa) => {
         console.log("Published", aa);
     })
-}, 100)
+    index++;
+}, 5000)
