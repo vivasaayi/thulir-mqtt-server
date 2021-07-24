@@ -1,0 +1,26 @@
+{
+  "name": "thulir-mqtt-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vivasaayi/thulir-mqtt-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vivasaayi/thulir-mqtt-server/issues"
+  },
+  "homepage": "https://github.com/vivasaayi/thulir-mqtt-server#readme",
+  "dependencies": {
+    "aedes": "^0.46.1"
+  },
+  "devDependencies": {
+    "mqtt": "^4.2.8"
+  }
+}
