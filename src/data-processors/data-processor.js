@@ -1,6 +1,7 @@
 class DataProcessor {
     processData(strData) {
-        const timestamp = Date.now();
+        const timestamp = new Date().toISOString();
+        
         try {
             const jsonRecord = JSON.parse(strData);
             jsonRecord.timestamp = timestamp;
