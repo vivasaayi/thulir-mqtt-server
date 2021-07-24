@@ -2,6 +2,12 @@ const aedes = require('aedes')();
 const server = require('net').createServer(aedes.handle);
 const port = 1883;
 
+const DataProcessor = require("./data-processors/data-processor");
+const DataPublisher = require("./data-publishers/data-publisher");
+
+const dataProcesser = new DataProcessor();
+const dataPublisher = new DataPublisher();
+
 server.listen(port, function () {
   console.log('server started and listening on port ', port)
 })
@@ -29,4 +35,7 @@ aedes.on('clientDisconnect', function (client) {
 // fired when a message is published
 aedes.on('publish', async function (packet, client) {
   console.log('Client \x1b[31m' + (client ? client.id : 'BROKER_' + aedes.id) + '\x1b[0m has published', packet.payload.toString(), 'on', packet.topic, 'to broker', aedes.id)
+
+  const processedRecord = dataProcesser.processData(packet.payload.toString());
+  dataPublisher.publishRecords(processedRecord);
 })
