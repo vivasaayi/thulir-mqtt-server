@@ -12,6 +12,8 @@ describe("DataProcessor", () => {
 
         expect(result.aaa).toBe("aaa");
         expect(result.bbb).toBe("bbb");
+        expect(result.error).not.toBeDefined()
+        expect(result.originalRecord).not.toBeDefined()
         expect(result.timestamp).toBeDefined();
     });
 

@@ -8,6 +8,7 @@ class DataProcessor {
             return JSON.stringify(jsonRecord);
         } catch (err) {
             console.log("Error converting record to JSON format");
+            console.log(err);
         }
         return JSON.stringify({
             timestamp,
